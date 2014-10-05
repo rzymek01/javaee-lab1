@@ -4,22 +4,25 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%-- The list of normal or fragment attributes can be specified here: --%>
+<%@attribute name="isLogged" required="true" rtexprvalue="true" %>
 <%@attribute name="msg" required="false" rtexprvalue="true" %>
 
 <jsp:doBody/>
+
+<c:if test="${not empty msg}">
+  <div style="font-weight: bold">
+    <c:out value="${msg}"/>
+  </div>
+</c:if>
+
 <c:choose>
-  <c:when test="${pageContext.getSession()}">
+  <c:when test="${isLogged}">
     <%-- logout link --%>
-    <a href="UserServlet">Wyloguj</a>
+    <div>
+      <a href="UserServlet">Wyloguj</a>
+    </div>
   </c:when>
   <c:otherwise>
-    <%-- feedback msg --%>
-    <c:when test="${msg}">
-      <div style="font-weight: bold">
-        ${msg}
-      </div>
-    </c:when>
-
     <%-- login form --%>
     <form action="UserServlet" method="post">
       <div>

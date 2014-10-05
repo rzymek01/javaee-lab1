@@ -22,10 +22,6 @@
         <name>form</name>
         <path>/WEB-INF/tags/form.tag</path>
     </tag-file>
-    <tag-file>
-        <name>footer</name>
-        <path>/WEB-INF/tags/footer.tag</path>
-    </tag-file>
     <!--<function>-->
         <!--<name>formatDate</name>-->
         <!--<function-class>pl.gda.pg.eti.kask.javaee.jsp.view.tags.DateFormater</function-class>-->

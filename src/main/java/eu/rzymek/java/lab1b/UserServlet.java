@@ -72,7 +72,7 @@ public class UserServlet extends HttpServlet {
       response.sendRedirect("userlist.jsp");
     } else {
       // przekierowanie z wiadomością
-      response.sendRedirect("index.jsp?msg=Nieprawidłowy%20login%20lub%20hasło");
+      response.sendRedirect("index.jsp?msg=Nieprawidlowy%20login%20lub%20haslo");
     }
   }
 

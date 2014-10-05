@@ -9,12 +9,16 @@
 <%@ page session="false" %>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Lista użytkowników - Lab1</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Lista użytkowników - Lab1</title>
 </head>
 <body>
-    <h1>Lista użytkowników</h1>
+  <h1>Lista użytkowników</h1>
 
+
+  <div>
+    <a href="index.jsp">Powrót</a>
+  </div>
 </body>
 </html>
 
