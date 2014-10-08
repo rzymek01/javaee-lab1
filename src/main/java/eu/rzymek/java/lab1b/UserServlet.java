@@ -29,15 +29,15 @@ public class UserServlet extends HttpServlet {
     System.out.println("UserServlet: in processRequest");
 
     HttpSession session = request.getSession(false);
-    if (null != session) {
-      // sesja istnieje, więc wylogowanie usera
+    if (null != session && null != session.getAttribute("login")) {
+      // user is logged in, hence log out
       session.invalidate();
       response.sendRedirect("index.jsp?msg=Wylogowano");
 
       return;
     }
 
-    // sesja nie istnieje, więc próba zalogowania
+    // user is logged out, hence try to log in
     boolean valid = false;
 
     String[] loginText = request.getParameterMap().get(LOGIN_FIELD);
@@ -54,24 +54,21 @@ public class UserServlet extends HttpServlet {
     }
 
     if (login != null && password != null) {
-      // sprawdzenie loginu i hasła
+      // check login and password
       if (password.equals("abcd")) {
         valid = true;
       }
     }
 
     if (valid) {
-      // utworzenie sesji
+      // create a session (behind the scene the session listener add user to list)
       session = request.getSession(true);
       session.setAttribute("login", login);
 
-      // zarejestrowanie usera
-      //@todo: pobranie Beana trzymającego listę userów i dodanie loginu
-
-      // przekierowanie na listę userów
+      // redirect to user list
       response.sendRedirect("userlist.jsp");
     } else {
-      // przekierowanie z wiadomością
+      // redirect with message
       response.sendRedirect("index.jsp?msg=Nieprawidlowy%20login%20lub%20haslo");
     }
   }
