@@ -21,7 +21,7 @@
 
 <div>
   <p>Liczba zalogowanych użytkowników: ${userList.count}</p>
-  <c:forEach var="user" items="<%=userList.getList(listOrder)%>">
+  <c:forEach var="user" items="${userList.getList(listOrder)}">
     <p>
       ${user.login}
       (data zalogowania: <span style="color:${dateColor}">${mytags:formatDate(user.loginDate)}</span>)
